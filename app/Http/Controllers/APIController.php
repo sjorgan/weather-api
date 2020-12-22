@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Validator;
-use App\Location;
+use App\Models\Location;
 use Illuminate\Http\Request;
 
-class LocationController extends Controller
+class APIController extends Controller
 {
 
     private $current_time;
@@ -27,9 +27,9 @@ class LocationController extends Controller
      *
      * @return Response
      */
-    public function current_weather(Request $request) {
+    public function currentWeather(Request $request) {
 
-        //validate inputted location name
+        //validate inputed location name
         $validate = Validator::make($request->all(), [
             'city' => 'required|string',
         ]);
@@ -60,7 +60,7 @@ class LocationController extends Controller
                     'payload' => [
                         'weather_type' => $timeslot->weather_type,
                         'temperature' => $timeslot->temperature,
-                        'temperature_unit' => $timeslot->temperature_unit(),
+                        'temperature_unit' => $timeslot->temperatureUnit(),
                         'humidity' => $timeslot->humidity,
                     ],
                 ];

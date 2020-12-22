@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,7 +30,12 @@ class Timeslot extends Model {
         $this->temperature_unit = config('app.weather_temperature_unit');
     }
 
-	public function temperature_unit() {
+    /**
+     * Returns the unit of measurement being used for temperature values
+     *
+     * @return string
+     */
+	public function temperatureUnit() {
 		return $this->temperature_unit;
 	}
 }

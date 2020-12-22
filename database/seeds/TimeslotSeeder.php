@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Timeslot;
+use App\Models\Timeslot;
 
 class TimeslotSeeder extends Seeder
 {
